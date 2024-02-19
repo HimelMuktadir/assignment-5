@@ -13,28 +13,36 @@ function scrollToSection(sectionId) {
     let count=0;
     const ticketPrice=550;
     const seatAvailable=28;
+    
 
   for(const btn of allBtn){
-    btn.addEventListener("click", function(){
+    btn.addEventListener("click", function(e){
+      if (count < 4) {count=count+1;} 
+
+      else{ return}
       
-      if (count < 4) {count=count+1;}
-      else{
-        alert ('You can not select more than 4 seat');}
-      
-      if (!btn.classList.contains('booked')) { btn.classList.add('booked');}
+      if (!btn.classList.contains('booked')) { btn.classList.add('booked')}
+      else{alert("stopp")}
     
 
 
       const totalAmount = count * ticketPrice;
-      // console.log(totalAmount);
- 
+    
       const totalAmountContainer = document.getElementById('total-price');
       totalAmountContainer.innerText=totalAmount;
 
       const remainingSeat=seatAvailable-count;
-      // console.log(remainingSeat);
       const remainingSeatContainer=document.getElementById('available-seat');
       remainingSeatContainer.innerText=remainingSeat;
+
+    const btnText=btn.innerText
+    const seatClass=document.getElementById('seat-class');
+
+    const li=document.createElement('li');
+    li.innerText=[btnText,' Economy ', 550];
+    seatClass.appendChild(li);
+    
+
 
 
 
