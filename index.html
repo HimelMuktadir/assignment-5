@@ -6,6 +6,20 @@
     <title>P Paribahan</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    .kbd {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .booked {
+    background-color: rgb(12, 219, 12);
+    cursor: not-allowed; 
+  }
+    </style>
 </head>
 
 <body class="max-w-screen-xl mx-auto">
@@ -47,19 +61,12 @@
                 <h1 class="mb-5 text-4xl font-bold my-7">End-to-End Travel with <br>
                     <span class="text-green-500 ">P Paribahan</span></h1> <br>
                 <p class="mb-5">Explore scenic routes with our reliable bus company. Enjoy comfortable journeys, friendly service, and affordable fares. Your adventure begins with us! Book your ticket today..</p>
-                <button class="btn btn-primary mt-7 mb-10">Buy Ticket</button>
+                <button onclick="scrollToSection('seat-section')" class="btn btn-primary mt-7 mb-10">Buy Ticket </button>
               </div>
             </div>
           </div>
 
     </header>
-
-
-
-
-
-
-
 
 
 
@@ -106,141 +113,162 @@
 
 
 
+      <!--------- seat section----------- -->
 
 
 
+      <div id="seat-section">
 
-      <div class="flex justify-between gap-5 my-8">
+        <div class="flex justify-between gap-5 my-8">
 
-        <div class="flex-1">
-          <label class="input input-bordered flex items-center gap-2">
-            <input type="text" class="grow" placeholder="Route" />
-          </label>
+          <div class=" bg-gray-100 rounded-lg p-6">
+            <div class="flex-1">
+              <div class="flex justify-between">
+                <p class="text-lg font-medium">Route</p>
+                ---------------------------------------------
+                <p class="text-lg font-medium">Dhaka-Sylhet</p>
+              </div>
+            <br>
+              <div class="flex justify-between">
+                <p class="text-lg font-medium">Departure Time</p>
+                ---------------------------------------------
+                <p class="text-lg font-medium">9.00 PM</p>
+              </div>
+            </div>
+            <br>
+            <div class="flex  gap-2 ">
+              <div class="rounded-md bg-gray-200 p-1 font-medium" ><p>Boarding Point-Laxmipur</p></div>
+              <div class="rounded-md bg-gray-200 p-1 font-medium" ><p>Dropping Point-Bogura</p></div>
+              <div class="rounded-md bg-gray-200 p-1 font-medium" ><p> Est. Time-11 Hour</p></div>
+            </div>
+          </div>
           
-          <label class="input input-bordered flex items-center gap-2">
-            <input type="text" class="grow" placeholder="Departure Time" />
-          </label>
-        </div>
-
-        <div class="flex-1">
-          <h1 class="text-xl font-semibold text-green-500">
-            Available Seat: <span> </span>
-          </h1>
-          <h1 class="text-2xl font-bold">Price: 550 Tk</h1>
-          <p>Per Seat</p>
-        </div>
-
-      </div>
-
-
-
-      <div class="flex justify-around">
-
-        <div class=" grid grid-cols-4 gap-8">
-          <kbd class="kbd">A1</kbd>
-          <kbd class="kbd">A2</kbd>
-          <kbd class="kbd">A3</kbd>
-          <kbd class="kbd">A4</kbd>
-          <kbd class="kbd">B1</kbd>
-          <kbd class="kbd">B2</kbd>
-          <kbd class="kbd">B3</kbd>
-          <kbd class="kbd">B4</kbd>
-          <kbd class="kbd">C1</kbd>
-          <kbd class="kbd">C2</kbd>
-          <kbd class="kbd">C3</kbd>
-          <kbd class="kbd">C4</kbd>
-          <kbd class="kbd">D1</kbd>
-          <kbd class="kbd">D2</kbd>
-          <kbd class="kbd">D3</kbd>
-          <kbd class="kbd">D4</kbd>
-          <kbd class="kbd">E1</kbd>
-          <kbd class="kbd">E2</kbd>
-          <kbd class="kbd">E3</kbd>
-          <kbd class="kbd">E4</kbd>
-          <kbd class="kbd">F1</kbd>
-          <kbd class="kbd">F2</kbd>
-          <kbd class="kbd">F3</kbd>
-          <kbd class="kbd">F4</kbd>
-          <kbd class="kbd">G1</kbd>
-          <kbd class="kbd">G2</kbd>
-          <kbd class="kbd">G3</kbd>
-          <kbd class="kbd">G4</kbd>
-          <kbd class="kbd">H1</kbd>
-          <kbd class="kbd">H2</kbd>
-          <kbd class="kbd">H3</kbd>
-          <kbd class="kbd">H4</kbd>
-
-        </div>
-
-
-
-
-        <div>
-
-          <div>
-            <div class="overflow-x-auto">
-              <table class="table">
-                <!-- head -->
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Seat</th>
-                    <th>Class</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- row 1 -->
-                  <tr class="bg-base-200">
-                    <th>1</th>
-                    <td>Cy Ganderton</td>
-                    <td>Economy</td>
-                    <td>Blue</td>
-                  </tr>
-                  <!-- row 2 -->
-                  <tr>
-                    <th>2</th>
-                    <td>Hart Hagerty</td>
-                    <td>Economy</td>
-                    <td>Purple</td>
-                  </tr>
-                  <!-- row 3 -->
-                  <tr>
-                    <th>3</th>
-                    <td>Total Price</td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+  
+          <div class="flex justify-around flex-1">
+            <div>
+              <h1 class="text-xl font-semibold text-green-500">Total Seat: 28</h1>
+              <h1 class="text-xl font-semibold text-green-500">Seat Booked: <span id="seat-count"> </span> </h1>
+              <h1 class="text-xl font-semibold text-green-500">
+                Available Seat: <span id="available-seat"> </span>
+              </h1>
+            </div>
+            <div class="bg-gray-100 rounded-xl px-8 py-6">
+              <img class="block mx-auto" src="./B9A5-smart-ticketing-main/images/fare.png" alt="">
+              <h1 id="ticketPrice" class="text-2xl font-bold">Price: 550 Tk</h1>
+              <p class="text-center">Per Seat</p>
             </div>
           </div>
-
-          <div>
-            <label class="input input-bordered flex items-center gap-2">
-              Name
-              <input type="text" class="grow" placeholder="Input Name" />
-            </label>
-            <br>
-            <label class="input input-bordered flex items-center gap-2">
-              Email
-              <input type="text" class="grow" placeholder="Input Email" />
-            </label>
-            <br>
-            <label class="input input-bordered flex items-center gap-2">
-              <input type="text" class="grow" placeholder="Input Phone No" />
-              <span class="badge badge-info">Phone No</span>
-            </label>
-            <br>
-            <div class="flex justify-center">
-              <button class="btn btn-wide bg-green-500 text-white">Next</button>
-            </div>
-
-          </div>
-
-
+  
         </div>
+  
+  
+  
+        <div class="flex justify-around">
+  
+          <div class="grid grid-cols-4 gap-8">
 
+            <kbd class="kbd">A1</kbd>
+            <kbd class="kbd">A2</kbd>
+            <kbd class="kbd">A3</kbd>
+            <kbd class="kbd">A4</kbd>
+            <kbd class="kbd">B1</kbd>
+            <kbd class="kbd">B2</kbd>
+            <kbd class="kbd">B3</kbd>
+            <kbd class="kbd">B4</kbd>
+            <kbd class="kbd">C1</kbd>
+            <kbd class="kbd">C2</kbd>
+            <kbd class="kbd">C3</kbd>
+            <kbd class="kbd">C4</kbd>
+            <kbd class="kbd">D1</kbd>
+            <kbd class="kbd">D2</kbd>
+            <kbd class="kbd">D3</kbd>
+            <kbd class="kbd">D4</kbd>
+            <kbd class="kbd">E1</kbd>
+            <kbd class="kbd">E2</kbd>
+            <kbd class="kbd">E3</kbd>
+            <kbd class="kbd">E4</kbd>
+            <kbd class="kbd">F1</kbd>
+            <kbd class="kbd">F2</kbd>
+            <kbd class="kbd">F3</kbd>
+            <kbd class="kbd">F4</kbd>
+            <kbd class="kbd">G1</kbd>
+            <kbd class="kbd">G2</kbd>
+            <kbd class="kbd">G3</kbd>
+            <kbd class="kbd">G4</kbd>
+
+  
+          </div>
+  
+  
+  
+  
+          <div>
+  
+            <div>
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Seat</th>
+                      <th>Class</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr class="bg-base-200">
+                      <th>1</th>
+                      <td>Cy Ganderton</td>
+                      <td>Economy</td>
+                      <td>Blue</td>
+                    </tr>
+                    <!-- row 2 -->
+                    <tr>
+                      <th>2</th>
+                      <td>Hart Hagerty</td>
+                      <td>Economy</td>
+                      <td>Purple</td>
+                    </tr>
+                    <!-- row 3 -->
+                    <tr>
+                      <th>3</th>
+                      <td class="text-2xl font-semibold">Total Price</td>
+                      <td></td>
+                      <td class="text-2xl font-semibold" id="total-price"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+            <div>
+              <label class="input input-bordered flex items-center gap-2">
+                Name
+                <input type="text" class="grow" placeholder="Input Name" />
+              </label>
+              <br>
+              <label class="input input-bordered flex items-center gap-2">
+                Email
+                <input type="text" class="grow" placeholder="Input Email" />
+              </label>
+              <br>
+              <label class="input input-bordered flex items-center gap-2">
+                <input type="text" class="grow" placeholder="Input Phone No" />
+                <span class="badge badge-info">Phone No</span>
+              </label>
+              <br>
+              <div class="flex justify-center">
+                <button class="btn btn-wide bg-green-500 text-white">Next</button>
+              </div>
+  
+            </div>
+  
+  
+          </div>
+  
+        </div>
       </div>
 
 
@@ -281,5 +309,6 @@
     <footer>
 
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
